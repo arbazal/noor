@@ -1,0 +1,25 @@
+
+name: DevOps Portfolio CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Project Files
+        run: |
+          test -f index.html
+          test -f Dockerfile
+          echo "Project files found successfully!"
+
+      - name: Build Docker Image
+        run: docker build -t devops-portfolio .
