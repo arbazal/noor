@@ -18,7 +18,7 @@ jobs:
       - name: Check Project Files
         run: |
           test -f index.html
-          test -f Dockerfile
+          test -f dockerfile
           echo "Project files found successfully!"
 
       - name: Build Docker Image
